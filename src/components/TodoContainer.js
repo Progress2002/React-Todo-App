@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Header from './Header';
 import TodoList from './TodoList';
 import InputTodo from './InputTodo';
+import '../App.css' 
 
 class TodoContainer extends React.Component {
   state = {
@@ -61,7 +62,7 @@ class TodoContainer extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='body'>
         <Header />
         <InputTodo addTodoProps={this.addTodoItem} />
         <TodoList
