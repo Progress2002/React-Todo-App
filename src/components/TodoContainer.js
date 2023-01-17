@@ -2,6 +2,8 @@ import React from "react";
 import Header from "./Header";
 import TodoList from "./TodoList";
 import InputTodo from "./InputTodo";
+import { v4 as uuidv4 } from "uuid";
+
 
 
 class TodoContainer extends React.Component {
@@ -49,11 +51,22 @@ class TodoContainer extends React.Component {
     });
   };
 
+  addTodoItem = title => {
+    const newTodo = {
+      id: 4,
+      title: title,
+      completed: false
+    };
+    this.setState({
+      todos: [...this.state.todos, newTodo]
+    });
+  }
+
   render () {
     return (
       <div>
         <Header />
-        <InputTodo />
+        <InputTodo addTodoProps={this.addTodoItem} />
         <TodoList todos={this.state.todos} handleChangeProps={this.handleChange}
         deleteTodoProps={this.delTodo} />
       </div>
